@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMOR</title>
+  <style>
+    .body { background-color: rgb(192, 67, 255); }
+    .row { display: block; font-size: 20px; }
+    .row .col6 { width: 100%; }
+    .bigimg { border: 1px solid rgb(192, 67, 255); margin-right: 20px; }
+    .bigimg img { width: 100%; }
+    .bigimg img { padding: auto; }
+    .bigimg img { margin-left: auto; }
+    .bigimg img { border-radius: 20px; }
+    .smallimg { display: block; list-style: none; }
+    .smallimg li { padding: 0; margin: 5px 15px; }
+    .smallimg li .imgthumb { transition: all .5s; border-radius: 10px; max-width: 150px; width: 100%; }
+    .imgs { transform: scale(1.1); box-shadow: -2px 2px 8px #333; }
+    .text { text-align: justify; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
+    .text-content { display: none; color: white; }
+    .text-content.active { display: block; color: white }
+    @media only screen and (min-width: 250px) {
+      .row { display: flex; flex: 1; }
+      .col6 { width: 50%; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body class="body">
+  <section>
+    <div class="row">
+      <div class="col6">
+        <div class="bigimg">
+          <img src="img/bg1.jpg" alt="TE AMO" id="bigimg">
+        </div>
+      </div>
+      <div class="col6">
+        <ul class="smallimg" style="display:flex;">
+          <li><img class="imgthumb" src="img/bg1.jpg" alt="img 1 small" data-text="text1"></li>
+          <li><img class="imgthumb" src="img/bg2.jpg" alt="img 2 small" data-text="text2"></li>
+          <li><img class="imgthumb" src="img/bg3.jpg" alt="img 3 small" data-text="text3"></li>
+        </ul>
+        <div>
+          <ol class="text">
+            <li id="text1" class="text-content active">
+              <p>Hola amor mio, te amo bebé, cada dia soy mas vulnerable a tu amor, mi vida se completa en tí. El regalo más hermoso de Dios en la tierra es haberte encontrado a tí, la mujer de mis sueños, mi mejor despertar.</p>
+            </li>
+            <li id="text2" class="text-content">
+              <p>Amor mio, te regalo este ramo de flores para que sepas cuanto te te necesito, te admiro. Eres mi jardín favorito, la única flor que cada dia embellece más, la única que resplandece más que el sol.</p>
+            </li>
+            <li id="text3" class="text-content">
+              <p>Bella de mi vida, entre mis manos como atesoro esta rosa, así atesoro tu corazón latiendo dentro del mío. Es el reflejo de mi pasión por cuidarte, armarte, y tenerte como a vaso más frágil.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    var bigimg = document.getElementById('bigimg'),
+        imgthumb = document.querySelectorAll('.imgthumb'),
+        textContents = document.querySelectorAll('.text-content');
+
+    imgthumb.forEach((el) => {
+      el.addEventListener('mouseover', function() {
+        this.classList.add('imgs');
+        bigimg.setAttribute('src', this.src);
+      });
+      el.addEventListener('mouseout', function() {
+        this.classList.remove('imgs');
+      });
+      el.addEventListener('mouseover', function() {
+        textContents.forEach((text) => text.classList.remove('active'));
+        document.getElementById(this.dataset.text).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
