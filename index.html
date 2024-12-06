@@ -24,6 +24,25 @@
       .row { display: flex; flex: 1; }
       .col6 { width: 50%; margin: 0 auto; }
     }
+    /* Media Queries */
+    @media (max-width: 768px) {
+        .row {
+            flex-direction: column;
+        }
+        .col6 {
+            flex: 1 1 100%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        section {
+            text-align: center;
+        }
+        .col6 {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
   </style>
 </head>
 <body class="body">
